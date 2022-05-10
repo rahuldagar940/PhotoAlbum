@@ -2,6 +2,7 @@ package com.example.PhotoAlbum.model;
 
 public class Comment
 {
+    private int photoID;
     private int commentID;
     private String message;
     private String createdBy;
@@ -11,6 +12,14 @@ public class Comment
         this.message = message;
         this.createdBy = createdBy;
         this.dateCreated = dateCreated;
+    }
+
+    public int getPhotoID() {
+        return photoID;
+    }
+
+    public void setPhotoID(int photoID) {
+        this.photoID = photoID;
     }
 
     public int getCommentID() {

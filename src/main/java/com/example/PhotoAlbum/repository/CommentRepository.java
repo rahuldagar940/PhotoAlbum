@@ -19,6 +19,7 @@ public class CommentRepository {
     public Comment saveComment(Comment comment)
     {
         comment.setCommentID(commentList.size() + 1);
+        comment.setPhotoID(commentList.size() + 1);
         commentList.add(comment);
         return comment;
     }
@@ -46,6 +47,7 @@ public class CommentRepository {
             if(c.getCommentID() == commentID)
             {
                 c.setMessage(comment.getMessage());
+                c.setPhotoID(comment.getPhotoID());
                 c.setCreatedBy(comment.getCreatedBy());
                 c.setDateCreated(comment.getDateCreated());
                 return c;

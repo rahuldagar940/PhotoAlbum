@@ -13,13 +13,15 @@ public class PhotoRepository {
 
     public Photo getPhoto()
     {
-        //Photo photo = new Photo("MyPC", "Rahul", "")
         Photo photo = new Photo("MyPC/E", "Rahul", "June");
         return photo;
     }
 
-    public Photo savePhoto(Photo photo) {
-        getPhoto().setPhotoID(photoList.size()+1);
+    public Photo savePhoto(Photo photo)
+    {
+
+        photo.setPhotoID(photoList.size()+1);
+        photo.setAlbumID(photoList.size()+1);
         photoList.add(photo);
         return photo;
     }
@@ -47,6 +49,7 @@ public class PhotoRepository {
             if(p.getPhotoID() == photoID)
             {
                 p.setPhotoURL(photo.getPhotoURL());
+                p.setAlbumID(photo.getAlbumID());
                 p.setCreatedBy(photo.getCreatedBy());
                 p.setDateCreated(photo.getDateCreated());
                 return p;
