@@ -11,15 +11,35 @@ import java.util.List;
 public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
+    public Comment saveComment(Comment comment)
+    {
+        return commentRepository.save(comment);
+    }
+    public List<Comment> getallComments() {
+        return commentRepository.findAll();
+    }
+    public Comment updateComment(Comment comment) {
+        return commentRepository.save(comment);
+    }
+
+
+    public void deleteComment(String commentID)
+    {
+        commentRepository.deleteById(commentID);
+    }
+
+    public List<Comment> getByMessage(String message)
+    {
+        return commentRepository.findAllByMessage(message);
+    }
+
+    /*
     public Comment getComment()
     {
         return commentRepository.getComment();
     }
 
-    public Comment saveComment(Comment comment)
-    {
-        return commentRepository.saveComment(comment);
-    }
+
 
     public List<Comment> getallComments() {
         return commentRepository.getallComments();
@@ -37,4 +57,6 @@ public class CommentService {
     {
         return commentRepository.deletedComment(commentID);
     }
+    */
+
 }

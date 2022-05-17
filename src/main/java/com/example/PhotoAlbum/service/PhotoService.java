@@ -12,16 +12,30 @@ import java.util.List;
 public class PhotoService {
     @Autowired
     private PhotoRepository photoRepository;
+    public Photo savePhoto(Photo photo)
+    {
+        return photoRepository.save(photo);
+    }
+    public List<Photo> getallPhotos() {
+        return photoRepository.findAll();
+    }
 
+    public Photo updatePhoto(Photo photo)
+    {
+        return photoRepository.save(photo);
+    }
+
+    public void deletePhoto(String photoID)
+    {
+        photoRepository.deleteById(photoID);
+    }
+    /*
     public Photo getPhoto()
     {
         return photoRepository.getPhoto();
     }
 
-    public Photo savePhoto(Photo photo)
-    {
-        return photoRepository.savePhoto(photo);
-    }
+
 
     public List<Photo> getallPhotos() {
         return photoRepository.getallPhotos();
@@ -39,5 +53,5 @@ public class PhotoService {
     public Photo deletePhoto(int photoID)
     {
         return photoRepository.deletePhoto(photoID);
-    }
+    }*/
 }

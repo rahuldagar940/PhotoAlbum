@@ -9,20 +9,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/photos")
 public class PhotoResource
 {
     @Autowired
     private PhotoService photoService;
+    @PostMapping
+    public Photo savePhoto(@RequestBody Photo photo)
+    {
+        return photoService.savePhoto(photo);
+    }
+
+    @GetMapping
+    public List<Photo> getallPhotos()
+    {
+        return photoService.getallPhotos();
+    }
+    @PutMapping("/photo/{photoID}")
+    public Photo updatePhoto(@RequestBody Photo photo)
+    {
+        return photoService.updatePhoto(photo);
+    }
+
+    @DeleteMapping
+    public void deletePhoto(@RequestParam(name = "PhotoID") String photoID)
+    {
+        photoService.deletePhoto(photoID);
+    }
+
+    /*
     @GetMapping("/photo")
     private Photo getPhoto()
     {
         return photoService.getPhoto();
-    }
-    @PostMapping("/photo")
-    public Photo savePhoto(@RequestBody Photo photo)
-    {
-        return photoService.savePhoto(photo);
     }
     @GetMapping("/allphotos")
     public List<Photo> getallPhotos()
@@ -45,5 +64,5 @@ public class PhotoResource
     public Photo deletePhoto(@RequestParam(name = "PhotoID") int photoID)
     {
         return photoService.deletePhoto(photoID);
-    }
+    }*/
 }

@@ -11,20 +11,44 @@ import java.util.List;
 public class UserService {
         @Autowired
         private UserRepository userRepository;
-        public User getUser()
-    {
-            return userRepository.getUser();
-        }
 
     public User saveUser(User user)
     {
-        return userRepository.saveUser(user);
+        return userRepository.save(user);
     }
 
     public List<User> getallUsers()
     {
+        return userRepository.findAll();
+    }
+
+    public User updateUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(String userID)
+    {
+        userRepository.deleteById(userID);
+    }
+
+    public List<User> getByAddress(String address) {
+        return userRepository.findAllByAddress(address);
+    }
+
+
+    /*
+    public List<User> getallUsers()
+    {
         return userRepository.getallUsers();
     }
+
+    public User getUser()
+    {
+            return userRepository.getUser();
+        }
+
+
+
 
     public User getUserbyID(int userID) {
             return userRepository.getUserbyID(userID);
@@ -37,6 +61,6 @@ public class UserService {
     public User deleteUser(int userID)
     {
         return userRepository.deleteUser(userID);
-    }
+    }*/
 }
 

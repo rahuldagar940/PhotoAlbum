@@ -11,16 +11,32 @@ import java.util.List;
 public class AlbumService {
     @Autowired
     private AlbumRepository albumRepository;
+    public Album saveAlbum(Album album)
+    {
+        return albumRepository.save(album);
+    }
+
+    public List<Album> getallAlbum() {
+        return albumRepository.findAll();
+    }
+
+    public Album updateAlbum(Album album)
+    {
+        return albumRepository.save(album);
+    }
+
+    public void deleteAlbum(String albumID)
+    {
+        albumRepository.deleteById(albumID);
+    }
+
+/*
     public Album getAlbum()
     {
 
         return albumRepository.getAlbum();
     }
 
-    public Album saveAlbum(Album album)
-    {
-        return albumRepository.saveAlbum(album);
-    }
 
     public List<Album> getallAlbum() {
         return albumRepository.getallAlbum();
@@ -31,7 +47,7 @@ public class AlbumService {
         return albumRepository.getAlbumbyID(albumID);
     }
 
-    public Album updatelbum(int albumID, Album album)
+    public Album updateAlbum(int albumID, Album album)
     {
         return albumRepository.updateAlbum(albumID, album);
     }
@@ -40,5 +56,5 @@ public class AlbumService {
     {
         return albumRepository.deleteAlbum(albumID);
     }
-
+*/
 }

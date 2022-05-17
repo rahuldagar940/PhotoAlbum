@@ -8,22 +8,51 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserResource
 {
     @Autowired
     private UserService userService;
+
+    @PostMapping
+    private User saveUser(@RequestBody User user)
+    {
+        return userService.saveUser(user);
+    }
+
+    @GetMapping
+    public List<User> getallUsers()
+    {
+        return userService.getallUsers();
+    }
+
+    @PutMapping
+    public User updateUser(@RequestBody User user)
+    {
+        return userService.updateUser(user);
+    }
+
+    @DeleteMapping
+    public void deleteUser(@RequestParam(name = "userID") String userID)
+    {
+        userService.deleteUser(userID);
+    }
+
+    @GetMapping
+    public List<User> getByAddress(@RequestParam(name = "address") String address)
+    {
+        return userService.getByAddress(address);
+    }
+
+
+    /*
     @GetMapping("/user")
     public User getUser()
     {
         return userService.getUser();
     }
-    @PostMapping("/user")
-    private User saveUser(@RequestBody User user)
-    {
-        return userService.saveUser(user);
-    }
-    @GetMapping("/allusers")
+
+    @GetMapping
     public List<User> getallUsers()
     {
         return userService.getallUsers();
@@ -43,4 +72,6 @@ public class UserResource
     {
         return userService.deleteUser(userID);
     }
+    */
+
 }

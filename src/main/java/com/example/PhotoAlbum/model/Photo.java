@@ -1,8 +1,11 @@
 package com.example.PhotoAlbum.model;
 
+import org.springframework.data.annotation.Id;
+
 public class Photo
 {
-    private int photoID;
+    @Id
+    private String photoID;
     private int albumID;
     private String photoURL;
     private String createdBy;
@@ -22,11 +25,11 @@ public class Photo
         this.albumID = albumID;
     }
 
-    public int getPhotoID() {
+    public String getPhotoID() {
         return photoID;
     }
 
-    public void setPhotoID(int photoID) {
+    public void setPhotoID(String photoID) {
         this.photoID = photoID;
     }
 
